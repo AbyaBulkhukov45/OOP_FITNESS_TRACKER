@@ -17,7 +17,7 @@ class InfoMessage:
         message = (f'Тип тренировки: {self.training_type}; '
                    f'Длительность: {self.duration:.3f} ч.; '
                    f'Дистанция: {self.distance:.3f} км; '
-                   f'Ср. скорость: {self.speed:.3f} км/ч; '
+                   f'Средняя. скорость: {self.speed:.3f} км/ч; '
                    f'Потрачено ккал: {self.calories:.3f}.')
         return message
 
@@ -59,7 +59,7 @@ class Training:
 
 
 class Running(Training):
-    """Тренировка: бег."""
+    """Тренировка"""
     coeff_calorie_1 = 18
     coeff_calorie_2 = 20
     def get_spent_calories(self):
@@ -125,7 +125,7 @@ def read_package(workout_type: str, data: list) -> Training:
     """Прогнать данные полученные от датчиков.
     на вход параметры:
        Словарь из двух параметров
-        1) Строка с кодом тренировки
+        1) Строка код тренировки
         2) Класс обработчик тренировки"""
     prime = {'SWM': Swimming, 'RUN': Running, 'WLK': SportsWalking}
     if workout_type in prime:

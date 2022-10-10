@@ -1,4 +1,4 @@
- class InfoMessage:
+class InfoMessage:
     """Информационное сообщение о тренировке."""
     def __init__(self,
                  training_type: str,

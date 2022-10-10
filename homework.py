@@ -7,7 +7,6 @@ class InfoMessage:
                  speed: float,
                  calories: float
                  ) -> None:
-
         self.training_type = training_type
         self.duration = duration
         self.distance = distance
@@ -30,13 +29,12 @@ class Training:
     """Базовый класс тренировки."""
     LEN_STEP = 0.65
     M_IN_KM = 1000
-
     def __init__(self,
                  action: int,
                  duration: float,
                  weight: float,
                  ) -> None:
-                 
+
         self.action = action
         self.duration = duration
         self.weight = weight
@@ -64,7 +62,6 @@ class Running(Training):
     """Тренировка: бег."""
     coeff_calorie_1 = 18
     coeff_calorie_2 = 20
-
     def get_spent_calories(self):
         first = self.coeff_calorie_1 * self.get_mean_speed()
         second = self.duration * 60
@@ -85,7 +82,6 @@ class SportsWalking(Training):
                  ) -> None:
         super().__init__(action, duration, weight)
         self.height = height
-
     def get_spent_calories(self):
         first_step = self.coeff_calorie_1 * self.weight
         second_step = (self.get_mean_speed()**2 // self.height)
@@ -100,11 +96,10 @@ class Swimming(Training):
     count_pool — сколько раз пользователь переплыл бассейн
     LEN_STEP - один гребок
     get_spent_calories() - расчета калорий
-    get_mean_speed() - ср скорость"""
+    get_mean_speed() - средняя скорость"""
     LEN_STEP = 1.38
     coeff_calorie_1 = 1.1
     coeff_calorie_2 = 2
-
     def __init__(self,
                  action: int,
                  duration: float,
@@ -143,7 +138,6 @@ def main(training: Training) -> None:
     info.show_message()
 
 
-#разобрать детальнее
 if __name__ == '__main__':
     packages = [
         ('SWM', [720, 1, 80, 25, 40]),

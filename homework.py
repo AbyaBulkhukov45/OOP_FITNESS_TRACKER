@@ -121,8 +121,9 @@ class Swimming(Training):
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     prime = {'SWM': Swimming, 'RUN': Running, 'WLK': SportsWalking}
-    if workout_type in prime:
-        return prime[workout_type](*data) #???????????????????????????????
+    if workout_type in prime.keys():
+        return prime[workout_type](*data)
+
 
 def main(training: Training) -> None:
     """Главная функция."""
@@ -140,3 +141,4 @@ if __name__ == '__main__':
     for training_type, data in packages:
         training = read_package(training_type, data)
         main(training)
+''

@@ -1,0 +1,254 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+----------------------- Проверка flake8 пройдена -----------------------
+
+platform linux -- Python 3.9.16
+pytest==6.2.5
+py==1.10.0
+pluggy==1.0.0
+rootdir: /app
+inifile: pytest.ini
+plugins: tldr-0.2.4, django-3.8.0
+
+------------------------------------------------------------------------------
+tests/test_homework.py::test_read_package ... ok
+tests/test_homework.py::test_read_package_return[('SWM', [720, 1, 80, 25, 40])-'Swimming'] ... ok
+tests/test_homework.py::test_read_package_return[('RUN', [15000, 1, 75])-'Running'] ... ok
+tests/test_homework.py::test_read_package_return[('WLK', [9000, 1, 75, 180])-'SportsWalking'] ... ok
+tests/test_homework.py::test_InfoMessage ... ok
+tests/test_homework.py::test_InfoMessage_get_message[['Swimming', 1, 75, 1, 80]-'Тип тренировки: Swimming; Длительность: 1.000 ч.; Дистанция: 75.000 км; Ср. скорость: 1.000 км/ч; Потрачено ккал: 80.000.'] ... ok
+tests/test_homework.py::test_InfoMessage_get_message[['Running', 4, 20, 4, 20]-'Тип тренировки: Running; Длительность: 4.000 ч.; Дистанция: 20.000 км; Ср. скорость: 4.000 км/ч; Потрачено ккал: 20.000.'] ... ok
+tests/test_homework.py::test_InfoMessage_get_message[['SportsWalking', 12, 6, 12, 6]-'Тип тренировки: SportsWalking; Длительность: 12.000 ч.; Дистанция: 6.000 км; Ср. скорость: 12.000 км/ч; Потрачено ккал: 6.000.'] ... ok
+tests/test_homework.py::test_Training ... FAIL
+tests/test_homework.py::test_Training_get_distance[[9000, 1, 75]-5.85] ... ok
+tests/test_homework.py::test_Training_get_distance[[420, 4, 20]-0.273] ... ok
+tests/test_homework.py::test_Training_get_distance[[1206, 12, 6]-0.7838999999999999] ... ok
+tests/test_homework.py::test_Training_get_mean_speed[[9000, 1, 75]-5.85] ... ok
+tests/test_homework.py::test_Training_get_mean_speed[[420, 4, 20]-0.06825] ... ok
+tests/test_homework.py::test_Training_get_mean_speed[[1206, 12, 6]-0.065325] ... ok
+tests/test_homework.py::test_Training_get_spent_calories[[9000, 1, 75]] ... ok
+tests/test_homework.py::test_Training_get_spent_calories[[420, 4, 20]] ... ok
+tests/test_homework.py::test_Training_get_spent_calories[[1206, 12, 6]] ... ok
+tests/test_homework.py::test_Training_show_training_info ... ok
+tests/test_homework.py::test_Swimming ... ok
+tests/test_homework.py::test_Swimming_get_mean[[720, 1, 80, 25, 40]-1.0] ... ok
+tests/test_homework.py::test_Swimming_get_mean[[420, 4, 20, 42, 4]-0.042] ... ok
+tests/test_homework.py::test_Swimming_get_mean[[1206, 12, 6, 12, 6]-0.005999999999999999] ... ok
+tests/test_homework.py::test_Swimming_get_spent_calories[[720, 1, 80, 25, 40]-336.0] ... ok
+tests/test_homework.py::test_Swimming_get_spent_calories[[420, 4, 20, 42, 4]-182.72] ... FAIL
+tests/test_homework.py::test_Swimming_get_spent_calories[[1206, 12, 6, 12, 6]-159.264] ... FAIL
+tests/test_homework.py::test_SportsWalking ... FAIL
+tests/test_homework.py::test_SportsWalking_get_spent_calories[[9000, 1, 75, 180]-349.252] ... FAIL
+tests/test_homework.py::test_SportsWalking_get_spent_calories[[420, 4, 20, 42]-168.119] ... FAIL
+tests/test_homework.py::test_SportsWalking_get_spent_calories[[1206, 12, 6, 12]-151.544] ... FAIL
+tests/test_homework.py::test_Running ... FAIL
+tests/test_homework.py::test_Running_get_spent_calories[[9000, 1, 75]-481.905] ... FAIL
+tests/test_homework.py::test_Running_get_spent_calories[[420, 4, 20]-14.489] ... FAIL
+tests/test_homework.py::test_Running_get_spent_calories[[1206, 12, 6]-12.812] ... FAIL
+tests/test_homework.py::test_main ... ok
+tests/test_homework.py::test_main_output[['SWM', [720, 1, 80, 25, 40]]-['Тип тренировки: Swimming; Длительность: 1.000 ч.; Дистанция: 0.994 км; Ср. скорость: 1.000 км/ч; Потрачено ккал: 336.000.']] ... ok
+tests/test_homework.py::test_main_output[['RUN', [1206, 12, 6]]-['Тип тренировки: Running; Длительность: 12.000 ч.; Дистанция: 0.784 км; Ср. скорость: 0.065 км/ч; Потрачено ккал: 12.812.']] ... FAIL
+tests/test_homework.py::test_main_output[['WLK', [9000, 1, 75, 180]]-['Тип тренировки: SportsWalking; Длительность: 1.000 ч.; Дистанция: 5.850 км; Ср. скорость: 5.850 км/ч; Потрачено ккал: 349.252.']] ... FAIL
+tests/test_homework.py::test_main_output[['WLK', [9000, 1.5, 75, 180]]-['Тип тренировки: SportsWalking; Длительность: 1.500 ч.; Дистанция: 5.850 км; Ср. скорость: 3.900 км/ч; Потрачено ккал: 364.084.']] ... FAIL
+tests/test_homework.py::test_main_output[['WLK', [3000.33, 2.512, 75.8, 180.1]]-['Тип тренировки: SportsWalking; Длительность: 2.512 ч.; Дистанция: 1.950 км; Ср. скорость: 0.776 км/ч; Потрачено ккал: 408.429.']] ... FAIL
+
+==============================================================================
+FAIL: tests/test_homework.py::test_Training
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 137, in test_Training
+    assert MIN_IN_H in homework.Training.__dict__.values(), (
+AssertionError: У класса `Training` должна быть константа для перевода часов в минуты со значением `60`.
+assert 60 in dict_values(['homework', 'Базовый класс тренировки.', 0.65, 1000, <function Training.__init__ at 0x7fcb02be23a0>, <fun...nfo at 0x7fcb02be25e0>, <attribute '__dict__' of 'Training' objects>, <attribute '__weakref__' of 'Training' objects>])
+ +  where dict_values(['homework', 'Базовый класс тренировки.', 0.65, 1000, <function Training.__init__ at 0x7fcb02be23a0>, <fun...nfo at 0x7fcb02be25e0>, <attribute '__dict__' of 'Training' objects>, <attribute '__weakref__' of 'Training' objects>]) = <built-in method values of mappingproxy object at 0x7fcb02be6190>()
+ +    where <built-in method values of mappingproxy object at 0x7fcb02be6190> = mappingproxy({'__module__': 'homework', '__doc__': 'Базовый класс тренировки.', 'LEN_STEP': 0.65, 'M_IN_KM': 1000, '__...dict__': <attribute '__dict__' of 'Training' objects>, '__weakref__': <attribute '__weakref__' of 'Training' objects>}).values
+ +      where mappingproxy({'__module__': 'homework', '__doc__': 'Базовый класс тренировки.', 'LEN_STEP': 0.65, 'M_IN_KM': 1000, '__...dict__': <attribute '__dict__' of 'Training' objects>, '__weakref__': <attribute '__weakref__' of 'Training' objects>}) = <class 'homework.Training'>.__dict__
+ +        where <class 'homework.Training'> = homework.Training
+
+==============================================================================
+FAIL: tests/test_homework.py::test_Swimming_get_spent_calories[[420, 4, 20, 42, 4]-182.72]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 292, in test_Swimming_get_spent_calories
+    assert result == expected, (
+AssertionError: Проверьте формулу расчёта потраченных калорий в классе `Swimming`
+assert 45.68 == 182.72
+  +45.68
+  -182.72
+
+==============================================================================
+FAIL: tests/test_homework.py::test_Swimming_get_spent_calories[[1206, 12, 6, 12, 6]-159.264]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 292, in test_Swimming_get_spent_calories
+    assert result == expected, (
+AssertionError: Проверьте формулу расчёта потраченных калорий в классе `Swimming`
+assert 13.272 == 159.264
+  +13.272
+  -159.264
+
+==============================================================================
+FAIL: tests/test_homework.py::test_SportsWalking
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 327, in test_SportsWalking
+    assert value_info.value in SportsWalking_attr_values, (
+AssertionError: У класса `SportsWalking` должна быть константа для перевода значений из км/ч в м/с со значением `0.278`.
+assert 0.278 in dict_values(['homework', 'Тренировка: спортивная ходьба.', 0.035, 0.029, <function SportsWalking.__init__ at 0x7fcb02be2700>, <function SportsWalking.get_spent_calories at 0x7fcb02be2790>])
+ +  where 0.278 = ValueInfo(value=0.278, description=' для перевода значений из км/ч в м/с').value
+
+==============================================================================
+FAIL: tests/test_homework.py::test_SportsWalking_get_spent_calories[[9000, 1, 75, 180]-349.252]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 352, in test_SportsWalking_get_spent_calories
+    assert result == expected, (
+AssertionError: Проверьте формулу подсчёта потраченных калорий в классе `SportsWalking`
+assert 157.5 == 349.252
+  +157.5
+  -349.252
+
+==============================================================================
+FAIL: tests/test_homework.py::test_SportsWalking_get_spent_calories[[420, 4, 20, 42]-168.119]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 352, in test_SportsWalking_get_spent_calories
+    assert result == expected, (
+AssertionError: Проверьте формулу подсчёта потраченных калорий в классе `SportsWalking`
+assert 168.0 == 168.119
+  +168.0
+  -168.119
+
+==============================================================================
+FAIL: tests/test_homework.py::test_SportsWalking_get_spent_calories[[1206, 12, 6, 12]-151.544]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 352, in test_SportsWalking_get_spent_calories
+    assert result == expected, (
+AssertionError: Проверьте формулу подсчёта потраченных калорий в классе `SportsWalking`
+assert 151.2 == 151.544
+  +151.2
+  -151.544
+
+==============================================================================
+FAIL: tests/test_homework.py::test_Running
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 375, in test_Running
+    assert value_info.value in Running_attr_values, (
+AssertionError: У класса `Running` должна быть константа для сдвига средней скорости со значением `1.79`.
+assert 1.79 in dict_values(['homework', 'Тренировка: бег.', 18, 20, <function Running.get_spent_calories at 0x7fcb02be2670>])
+ +  where 1.79 = ValueInfo(value=1.79, description=' для сдвига средней скорости').value
+
+==============================================================================
+FAIL: tests/test_homework.py::test_Running_get_spent_calories[[9000, 1, 75]-481.905]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 395, in test_Running_get_spent_calories
+    assert result == expected, (
+AssertionError: Проверьте формулу расчёта потраченных калорий в классе `Running`
+assert 383.85 == 481.905
+  +383.85
+  -481.905
+
+==============================================================================
+FAIL: tests/test_homework.py::test_Running_get_spent_calories[[420, 4, 20]-14.489]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 395, in test_Running_get_spent_calories
+    assert result == expected, (
+AssertionError: Проверьте формулу расчёта потраченных калорий в классе `Running`
+assert -90.103 == 14.489
+  +-90.103
+  -14.489
+
+==============================================================================
+FAIL: tests/test_homework.py::test_Running_get_spent_calories[[1206, 12, 6]-12.812]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 395, in test_Running_get_spent_calories
+    assert result == expected, (
+AssertionError: Проверьте формулу расчёта потраченных калорий в классе `Running`
+assert -81.32 == 12.812
+  +-81.32
+  -12.812
+
+==============================================================================
+FAIL: tests/test_homework.py::test_main_output[['RUN', [1206, 12, 6]]-['Тип тренировки: Running; Длительность: 12.000 ч.; Дистанция: 0.784 км; Ср. скорость: 0.065 км/ч; Потрачено ккал: 12.812.']]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 451, in test_main_output
+    assert get_message_output == expected, (
+AssertionError: Метод `main` должен печатать результат в консоль.
+  
+assert ['Тип тренировки: Running; Длительность: 12.000 ч.; Дистанция: 0.784 км; Ср. '\n 'скорость: 0.065 км/ч; Потрачено ккал: -81.320.'] == ['Тип тренировки: Running; Длительность: 12.000 ч.; Дистанция: 0.784 км; Ср. '\n 'скорость: 0.065 км/ч; Потрачено ккал: 12.812.']
+  At index 0 diff: 'Тип тренировки: Running; Длительность: 12.000 ч.; Дистанция: 0.784 км; Ср. скорость: 0.065 км/ч; Потрачено ккал: -81.320.' != 'Тип тренировки: Running; Длительность: 12.000 ч.; Дистанция: 0.784 км; Ср. скорость: 0.065 км/ч; Потрачено ккал: 12.812.'
+  Full diff:
+    [
+     'Тип тренировки: Running; Длительность: 12.000 ч.; Дистанция: 0.784 км; Ср. '
+  -  'скорость: 0.065 км/ч; Потрачено ккал: 12.812.',
+  ?                                         ^^^
+  +  'скорость: 0.065 км/ч; Потрачено ккал: -81.320.',
+  ?                                         ^  ++ +
+    ]
+
+==============================================================================
+FAIL: tests/test_homework.py::test_main_output[['WLK', [9000, 1, 75, 180]]-['Тип тренировки: SportsWalking; Длительность: 1.000 ч.; Дистанция: 5.850 км; Ср. скорость: 5.850 км/ч; Потрачено ккал: 349.252.']]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 451, in test_main_output
+    assert get_message_output == expected, (
+AssertionError: Метод `main` должен печатать результат в консоль.
+  
+assert ['Тип тренировки: SportsWalking; Длительность: 1.000 ч.; Дистанция: 5.850 км; '\n 'Ср. скорость: 5.850 км/ч; Потрачено ккал: 157.500.'] == ['Тип тренировки: SportsWalking; Длительность: 1.000 ч.; Дистанция: 5.850 км; '\n 'Ср. скорость: 5.850 км/ч; Потрачено ккал: 349.252.']
+  At index 0 diff: 'Тип тренировки: SportsWalking; Длительность: 1.000 ч.; Дистанция: 5.850 км; Ср. скорость: 5.850 км/ч; Потрачено ккал: 157.500.' != 'Тип тренировки: SportsWalking; Длительность: 1.000 ч.; Дистанция: 5.850 км; Ср. скорость: 5.850 км/ч; Потрачено ккал: 349.252.'
+  Full diff:
+    [
+     'Тип тренировки: SportsWalking; Длительность: 1.000 ч.; Дистанция: 5.850 км; '
+  -  'Ср. скорость: 5.850 км/ч; Потрачено ккал: 349.252.',
+  ?                                             ^^^ - ^
+  +  'Ср. скорость: 5.850 км/ч; Потрачено ккал: 157.500.',
+  ?                                             ^^^  ^^
+    ]
+
+==============================================================================
+FAIL: tests/test_homework.py::test_main_output[['WLK', [9000, 1.5, 75, 180]]-['Тип тренировки: SportsWalking; Длительность: 1.500 ч.; Дистанция: 5.850 км; Ср. скорость: 3.900 км/ч; Потрачено ккал: 364.084.']]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 451, in test_main_output
+    assert get_message_output == expected, (
+AssertionError: Метод `main` должен печатать результат в консоль.
+  
+assert ['Тип тренировки: SportsWalking; Длительность: 1.500 ч.; Дистанция: 5.850 км; '\n 'Ср. скорость: 3.900 км/ч; Потрачено ккал: 236.250.'] == ['Тип тренировки: SportsWalking; Длительность: 1.500 ч.; Дистанция: 5.850 км; '\n 'Ср. скорость: 3.900 км/ч; Потрачено ккал: 364.084.']
+  At index 0 diff: 'Тип тренировки: SportsWalking; Длительность: 1.500 ч.; Дистанция: 5.850 км; Ср. скорость: 3.900 км/ч; Потрачено ккал: 236.250.' != 'Тип тренировки: SportsWalking; Длительность: 1.500 ч.; Дистанция: 5.850 км; Ср. скорость: 3.900 км/ч; Потрачено ккал: 364.084.'
+  Full diff:
+    [
+     'Тип тренировки: SportsWalking; Длительность: 1.500 ч.; Дистанция: 5.850 км; '
+  -  'Ср. скорость: 3.900 км/ч; Потрачено ккал: 364.084.',
+  ?                                               -  --
+  +  'Ср. скорость: 3.900 км/ч; Потрачено ккал: 236.250.',
+  ?                                             +   ++
+    ]
+
+==============================================================================
+FAIL: tests/test_homework.py::test_main_output[['WLK', [3000.33, 2.512, 75.8, 180.1]]-['Тип тренировки: SportsWalking; Длительность: 2.512 ч.; Дистанция: 1.950 км; Ср. скорость: 0.776 км/ч; Потрачено ккал: 408.429.']]
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/tests/test_homework.py", line 451, in test_main_output
+    assert get_message_output == expected, (
+AssertionError: Метод `main` должен печатать результат в консоль.
+  
+assert ['Тип тренировки: SportsWalking; Длительность: 2.512 ч.; Дистанция: 1.950 км; '\n 'Ср. скорость: 0.776 км/ч; Потрачено ккал: 399.860.'] == ['Тип тренировки: SportsWalking; Длительность: 2.512 ч.; Дистанция: 1.950 км; '\n 'Ср. скорость: 0.776 км/ч; Потрачено ккал: 408.429.']
+  At index 0 diff: 'Тип тренировки: SportsWalking; Длительность: 2.512 ч.; Дистанция: 1.950 км; Ср. скорость: 0.776 км/ч; Потрачено ккал: 399.860.' != 'Тип тренировки: SportsWalking; Длительность: 2.512 ч.; Дистанция: 1.950 км; Ср. скорость: 0.776 км/ч; Потрачено ккал: 408.429.'
+  Full diff:
+    [
+     'Тип тренировки: SportsWalking; Длительность: 2.512 ч.; Дистанция: 1.950 км; '
+  -  'Ср. скорость: 0.776 км/ч; Потрачено ккал: 408.429.',
+  ?                                             ^ -----
+  +  'Ср. скорость: 0.776 км/ч; Потрачено ккал: 399.860.',
+  ?                                             ^^^^^^
+    ]
+
+------------------------------------------------------------------------------
+Ran 40 tests in 0.11s
+
+FAILED (failures=15)

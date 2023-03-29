@@ -21,11 +21,21 @@ class InfoMessage:
 class Training:
     """Базовый класс тренировки."""
 
-    M_IN_KM = 1000
-    LEN_STEP = 0.65
-    DURATION_COEFF = 60
+    M_IN_KM: int = 1000
+    LEN_STEP: float  = 0.65
+    DURATION_COEFF: int = 60
 
     def __init__(self, action: int, duration: float, weight: float) -> None:
+        """
+        Конструктор класса, инициализирующий новый экземпляр класса с заданными параметрами.
+        
+        Параметры:
+        action - номер действия
+        duration - длительность действия в секундах
+        weihgt - вес в килограммах
+        """
+
+        
         self.action = action
         self.duration = duration
         self.weight = weight
@@ -36,12 +46,13 @@ class Training:
 
     def get_mean_speed(self) -> float:
         """Получить среднюю скорость движения."""
-
         return self.get_distance() / self.duration
 
-    def get_spent_calories(self):
-        """Получить количество затраченных калорий."""
-        pass
+    def get_spent_calories(self)-> None:
+        """Получить количество затраченных калорий.
+        Метод не реализован и нужно переопределить в наследниках
+        """
+        raise NotImplementedError("Метод не реализован")
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
@@ -72,10 +83,10 @@ class Running(Training):
 class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
 
-    CALORIES_MEAN_SPEED_MULTIPLIER = 0.035
-    CALORIES_MEAN_SPEED_SHIFT = 0.029
-    KM_H_TO_M_S = 0.278
-    SM_TO_M = 100
+    CALORIES_MEAN_SPEED_MULTIPLIER: float = 0.035
+    CALORIES_MEAN_SPEED_SHIFT: float = 0.029
+    KM_H_TO_M_S: float = 0.278
+    SM_TO_M: int = 100
 
     def __init__(self, action: int,
                  duration: float,
@@ -93,14 +104,17 @@ class SportsWalking(Training):
                 * self.weight)
                 * self.duration
                 * self.DURATION_COEFF)
-
+        """
+        Рассчитывает количество калорий, сожженных во время выполнения
+        упражнения, исходя из веса, роста, продолжительности и средней скорости
+        """
 
 class Swimming(Training):
     """Тренировка: плавание."""
 
-    LEN_STEP = 1.38
-    SHIFT_SPEED = 1.1
-    MULTIPLIER_SPEED = 2
+    LEN_STEP: float = 1.38
+    SHIFT_SPEED: float = 1.1
+    MULTIPLIER_SPEED: int = 2
 
     def __init__(self, action: int,
                  duration: float,
@@ -108,17 +122,29 @@ class Swimming(Training):
                  length_pool: float,
                  count_pool: float
                  ):
+        """
+        Конструктор класса, инициализирующий объект класса с заданными параметрами.
+
+        Параметры:
+            action (int): совершенные действия
+            duration (float): длительность выполнения
+            weight (float): вес
+            length_pool (float): длина бассейна
+            count_pool (float): сколько раз проплыл туда и обратно
+        """
         super().__init__(action, duration, weight)
         self.length_pool = length_pool
         self.count_pool = count_pool
 
     def get_mean_speed(self):
+        """Рассчитывает среднюю скорость плавания в км/ч."""
         return (self.length_pool
                 * self.count_pool
                 / self.M_IN_KM
                 / self.duration)
 
     def get_spent_calories(self):
+        """Вычисляет количество затраченных калорий"""
         return ((self.get_mean_speed()
                 + self.SHIFT_SPEED)
                 * self.MULTIPLIER_SPEED
@@ -129,7 +155,7 @@ class Swimming(Training):
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
 
-    training_types: dict(str, Training) = {
+    training_types: dict[str, Training] = {
         'SWM': Swimming,
         'RUN': Running,
         'WLK': SportsWalking
@@ -158,3 +184,9 @@ if __name__ == '__main__':
     for workout_type, data in packages:
         training = read_package(workout_type, data)
         main(training)
+
+
+
+
+
+

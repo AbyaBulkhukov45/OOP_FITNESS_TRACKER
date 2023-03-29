@@ -27,16 +27,14 @@ class Training:
 
     def __init__(self, action: int, duration: float, weight: float) -> None:
         """
-        Конструктор класса, инициализирующий новый 
+        Конструктор класса, инициализирующий новый
         экземпляр класса с заданными параметрами.
-     
+    
         Параметры:
         action - номер действия
         duration - длительность действия в секундах
         weihgt - вес в килограммах
         """
-
-        
         self.action = action
         self.duration = duration
         self.weight = weight
@@ -49,7 +47,7 @@ class Training:
         """Получить среднюю скорость движения."""
         return self.get_distance() / self.duration
 
-    def get_spent_calories(self)-> None:
+    def get_spent_calories(self) -> None:
         """Получить количество затраченных калорий.
         Метод не реализован и нужно переопределить в наследниках
         """
@@ -110,6 +108,7 @@ class SportsWalking(Training):
         упражнения, исходя из веса, роста, продолжительности и средней скорости
         """
 
+
 class Swimming(Training):
     """Тренировка: плавание."""
 
@@ -124,7 +123,8 @@ class Swimming(Training):
                  count_pool: float
                  ):
         """
-        Конструктор класса, инициализирующий объект класса с заданными параметрами.
+        Конструктор класса, инициализирующий
+        объект класса с заданными параметрами.
 
         Параметры:
             action (int): совершенные действия
@@ -185,9 +185,3 @@ if __name__ == '__main__':
     for workout_type, data in packages:
         training = read_package(workout_type, data)
         main(training)
-
-
-
-
-
-

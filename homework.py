@@ -65,8 +65,8 @@ class Training:
 class Running(Training):
     """Тренировка: бег."""
 
-    CALORIES_MEAN_SPEED_MULTIPLIER = 18
-    CALORIES_MEAN_SPEED_SHIFT = 1.79
+    CALORIES_MEAN_SPEED_MULTIPLIER: int  = 18
+    CALORIES_MEAN_SPEED_SHIFT: float = 1.79
 
     def get_spent_calories(self) -> float:
         return ((self.CALORIES_MEAN_SPEED_MULTIPLIER
@@ -90,10 +90,23 @@ class SportsWalking(Training):
                  duration: float,
                  weight: float,
                  height: float):
+        """Инициализирует объект тренировки.
+
+        Аргументы:
+            action (int): код действия
+            duration (float): длительность тренировки в минутах
+            weight (float): вес
+            height (float): рост
+        """
         super().__init__(action, duration, weight)
         self.height = height
 
     def get_spent_calories(self):
+        """Вычисляет количество сожженных калорий за тренировку.
+
+        Возвращает:
+        spent_calories (float): количество сожженных калорий за тренировку
+        """
         return ((self.CALORIES_MEAN_SPEED_MULTIPLIER
                  * self.weight
                  + ((self.get_mean_speed() * self.KM_H_TO_M_S)**2
@@ -102,10 +115,6 @@ class SportsWalking(Training):
                 * self.weight)
                 * self.duration
                 * self.DURATION_COEFF)
-        """
-        Рассчитывает количество калорий, сожженных во время выполнения
-        упражнения, исходя из веса, роста, продолжительности и средней скорости
-        """
 
 
 class Swimming(Training):
